@@ -28,6 +28,7 @@ void displayHelp() {
 int main() {
   std::string currentFile;
   Navigator navigator;
+  FileHandler fileHandler;
 
   displayLogo();
   std::cout << "Welcome to the Slinky Web Browser!\n";
@@ -39,12 +40,21 @@ int main() {
   const int width{std::atoi(widths.c_str()) > 0 ? std::atoi(widths.c_str())
                                                 : 80};
 
+  std::cout << width << std::endl;  // widths is still unused
+
   std::cout << "Please enter the initial file to open: ";
   std::getline(std::cin, currentFile);
   navigator.addToHistory(currentFile);
 
   std::string content;
   while (currentFile != "exit") {
+    // Load content from the current file
+    content = fileHandler.loadFile(currentFile);
+    if (content.empty()) {
+      std::cout << "Error loading file: " << currentFile << "\n";
+      break;
+    }
+
     std::string command;
     std::cout << "> ";
     std::getline(std::cin, command);
