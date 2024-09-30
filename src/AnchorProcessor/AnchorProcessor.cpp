@@ -8,7 +8,7 @@ std::vector<std::string> AnchorProcessor::processAnchors(std::string &content) {
   std::vector<std::string> anchors;
   std::ostringstream transformed;
 
-  std::string filename, text;
+  std::string type, filename, text;
   int id = 0;
   bool inAnchor = false;
   std::string currentToken;
@@ -26,20 +26,30 @@ std::vector<std::string> AnchorProcessor::processAnchors(std::string &content) {
       if (inAnchor) {
         // Anchor closed
         std::string inner =
-            currentToken.substr(3, currentToken.size() - 4);  // Remove <a and >
+            currentToken.substr(1, currentToken.size() - 2);  // Remove < and >
         std::istringstream innerStream(inner);
 
         // Parse filename and text
-        innerStream >> filename >> text;
-        transformed << "<" << text << ">[" << id << "]";
-        anchors.push_back(filename);
-        id++;
+        innerStream >> type >> filename >> text;
+        if (type == "a") {
+          transformed << "<" << text << ">[" << id << "]";
+          anchors.push_back(filename);
+          id++;
+        } else if (type == "br") {
+          transformed << "\n";
+        } else if (type == "p") {
+          transformed << "\n\n";
+        }
 
         inAnchor = false;
         currentToken.clear();
       }
     } else {
-      currentToken += c;
+      if (c != '\n') {
+        currentToken += c;
+      } else {
+        currentToken += ' ';
+      }
     }
   }
 

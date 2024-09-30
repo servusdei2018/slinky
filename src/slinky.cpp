@@ -60,7 +60,7 @@ int main() {
     // Parse anchors
     std::vector<std::string> anchors = anchorProcessor.processAnchors(content);
 
-    std::cout << content;
+    std::cout << content << '\n';
 
     std::string command;
     std::cout << "> ";
