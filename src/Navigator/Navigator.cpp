@@ -13,8 +13,5 @@ void Navigator::addToHistory(const std::string& file) {
 
 // Goes back to the previous file in the history.
 std::string Navigator::goBack() {
-  if (currentIndex <= 0) {
-    throw std::out_of_range("No previous file in history.");
-  }
-  return history[--currentIndex];
+  return currentIndex <= 0 ? history[currentIndex] : history[--currentIndex];
 }

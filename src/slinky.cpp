@@ -60,12 +60,16 @@ int main() {
     // Parse anchors
     std::vector<std::string> anchors = anchorProcessor.processAnchors(content);
 
+    std::cout << content;
+
     std::string command;
     std::cout << "> ";
     std::getline(std::cin, command);
 
     if (command == "exit") {
       break;
+    } else if (command == "back") {
+      currentFile = navigator.goBack();
     } else if (command == "help") {
       displayHelp();
     } else {
