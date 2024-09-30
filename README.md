@@ -11,7 +11,8 @@
 ## Installation
 
 ```sh
-TODO
+$ make
+$ ./build/apps/slinky
 ```
 
 ## Design
