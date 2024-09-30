@@ -1,6 +1,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <string>
+#include <vector>
 
 #include "AnchorProcessor/AnchorProcessor.hpp"
 #include "FileHandler/FileHandler.hpp"
@@ -29,6 +30,7 @@ int main() {
   std::string currentFile;
   Navigator navigator;
   FileHandler fileHandler;
+  AnchorProcessor anchorProcessor;
 
   displayLogo();
   std::cout << "Welcome to the Slinky Web Browser!\n";
@@ -54,6 +56,9 @@ int main() {
       std::cout << "Error loading file: " << currentFile << "\n";
       break;
     }
+
+    // Parse anchors
+    std::vector<std::string> anchors = anchorProcessor.processAnchors(content);
 
     std::string command;
     std::cout << "> ";

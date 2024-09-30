@@ -23,10 +23,10 @@ class Navigator {
   // Constructor
   Navigator();
 
-  // Adds a file to the navigation history
+  // Adds a file to the navigation history.
   void addToHistory(const std::string& file);
 
-  // Goes back to the previous file in the history
+  // Goes back to the previous file in the history.
   std::string goBack();
 
  private:

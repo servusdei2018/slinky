@@ -22,7 +22,6 @@
  * - The returned vector contains filenames corresponding to each
  *   anchor found, with the index representing the unique identifier.
  */
-
 class AnchorProcessor {
  public:
   // Processes anchor tags in text content.
