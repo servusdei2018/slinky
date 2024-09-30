@@ -1,3 +1,4 @@
+#include <cstdlib>
 #include <iostream>
 #include <string>
 
@@ -26,10 +27,15 @@ void displayHelp() {
 
 int main() {
   std::string currentFile;
-
+  
   displayLogo();
   std::cout << "Welcome to the Slinky Web Browser!\n";
   displayHelp();
+
+  std::cout << "Display width (default 80):  ";
+  std::string widths;
+  std::getline(std::cin, widths);
+  const int width{ std::atoi(widths.c_str()) > 0 ? std::atoi(widths.c_str()) : 80 };
 
   std::cout << "Please enter the initial file to open: ";
   std::getline(std::cin, currentFile);
