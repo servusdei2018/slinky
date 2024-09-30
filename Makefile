@@ -7,6 +7,7 @@ APP_DIR  := $(BUILD)/apps
 TARGET   := slinky
 INCLUDE  := -Iinclude/
 SRC      := $(shell find src -name '*.cpp')
+HEADERS  := $(shell find include -name '*.h') $(shell find include -name '*.hpp')
 
 OBJECTS  := $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 DEPENDENCIES \
@@ -26,7 +27,7 @@ $(APP_DIR)/$(TARGET): $(OBJECTS)
 
 -include $(DEPENDENCIES)
 
-.PHONY: all build clean debug release info
+.PHONY: all build clean debug release format info
 
 build:
 	@mkdir -p $(APP_DIR)
@@ -42,6 +43,9 @@ clean:
 	-@rm -rvf $(OBJ_DIR)/*
 	-@rm -rvf $(APP_DIR)/*
 
+format:
+	@clang-format -i $(SRC) $(HEADERS)
+
 info:
 	@echo "     _ _      _        "
 	@echo "  __| (_)_ _ | |___  _ "
@@ -53,6 +57,8 @@ info:
 	@echo "[*] Object dir:      ${OBJ_DIR}     "
 	@echo "[*] Sources:          "
 	@echo "      - $(subst $(space),\n      - ,$(SRC))"
+	@echo "[*] Headers:          "
+	@echo "      - $(subst $(space),\n      - ,$(HEADERS))"
 	@echo "[*] Objects:          "
 	@echo "      - $(subst $(space),\n      - ,$(OBJECTS))"
 	@echo "[*] Dependencies:     "
