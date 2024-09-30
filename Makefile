@@ -12,6 +12,8 @@ OBJECTS  := $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 DEPENDENCIES \
          := $(OBJECTS:.o=.d)
 
+space := $(empty) $(empty)
+
 all: build $(APP_DIR)/$(TARGET)
 
 $(OBJ_DIR)/%.o: %.cpp
@@ -41,8 +43,17 @@ clean:
 	-@rm -rvf $(APP_DIR)/*
 
 info:
+	@echo "     _ _      _        "
+	@echo "  __| (_)_ _ | |___  _ "
+	@echo " (_-< | | ' \| / / || |"
+	@echo " /__/_|_|_||_|_\_\\_, |"
+	@echo "                  |__/  "
+	@echo ""
 	@echo "[*] Application dir: ${APP_DIR}     "
 	@echo "[*] Object dir:      ${OBJ_DIR}     "
-	@echo "[*] Sources:         ${SRC}         "
-	@echo "[*] Objects:         ${OBJECTS}     "
-	@echo "[*] Dependencies:    ${DEPENDENCIES}"
+	@echo "[*] Sources:          "
+	@echo "      - $(subst $(space),\n      - ,$(SRC))"
+	@echo "[*] Objects:          "
+	@echo "      - $(subst $(space),\n      - ,$(OBJECTS))"
+	@echo "[*] Dependencies:     "
+	@echo "      - $(subst $(space),\n      - ,$(DEPENDENCIES))"

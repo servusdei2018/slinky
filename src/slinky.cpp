@@ -6,6 +6,17 @@
 #include "Navigator/Navigator.hpp"
 #include "TextFormatter/TextFormatter.hpp"
 
+const std::string LOGO = 
+        "     _ _      _        \n"
+        "  __| (_)_ _ | |___  _ \n"
+        " (_-< | | ' \\| / / || |\n"
+        " /__/_|_|_||_|_\\_\\_, |\n"
+        "                  |__/  \n";
+
+void displayLogo() {
+    std::cout << LOGO;
+}
+
 void displayHelp() {
     std::cout << "Commands:\n";
     std::cout << "  go <n>     - Navigate to the document associated with anchor number n\n";
@@ -17,6 +28,7 @@ void displayHelp() {
 int main() {
     std::string currentFile;
 
+    displayLogo();
     std::cout << "Welcome to the Slinky Web Browser!\n";
     displayHelp();
     
