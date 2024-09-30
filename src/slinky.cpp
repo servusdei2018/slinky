@@ -27,6 +27,7 @@ void displayHelp() {
 
 int main() {
   std::string currentFile;
+  Navigator navigator;
 
   displayLogo();
   std::cout << "Welcome to the Slinky Web Browser!\n";
@@ -40,6 +41,7 @@ int main() {
 
   std::cout << "Please enter the initial file to open: ";
   std::getline(std::cin, currentFile);
+  navigator.addToHistory(currentFile);
 
   std::string content;
   while (currentFile != "exit") {

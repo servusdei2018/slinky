@@ -8,12 +8,12 @@
 /**
  * @class Navigator
  * @brief Manages a history of navigated files.
- * 
+ *
  * The Navigator class stores a history of links, allowing users to
  * add new files to the navigation history and navigate back to the
  * previous files. It provides a simple interface to track the
  * current file and access previously visited files.
- * 
+ *
  * Usage:
  * - Use `addToHistory` to record a new file.
  * - Use `goBack` to return to the last file in the history.
