@@ -41,39 +41,66 @@ int main() {
   std::getline(std::cin, widths);
   const int width{std::atoi(widths.c_str()) > 0 ? std::atoi(widths.c_str())
                                                 : 80};
-
-  std::cout << width << std::endl;  // widths is still unused
+  TextFormatter textFormatter(width);
 
   std::cout << "Please enter the initial file to open: ";
   std::getline(std::cin, currentFile);
   navigator.addToHistory(currentFile);
 
+  bool changed = true;
   std::string content;
+  std::vector<std::string> anchors;
+
+  // REPL Loop
   while (currentFile != "exit") {
-    // Load content from the current file
-    content = fileHandler.loadFile(currentFile);
-    if (content.empty()) {
-      std::cout << "Error loading file: " << currentFile << "\n";
-      break;
+    // Print
+    if (changed) {
+      // Load content from the current file
+      content = fileHandler.loadFile(currentFile);
+      if (content.empty()) {
+        std::cout << "Error loading file: " << currentFile << "\n";
+        break;
+      }
+
+      // Parse anchors
+      anchors = anchorProcessor.processAnchors(content);
+
+      // Format and display content
+      textFormatter.formatContent(content);
+      std::cout << content << '\n';
+      changed = false;
     }
 
-    // Parse anchors
-    std::vector<std::string> anchors = anchorProcessor.processAnchors(content);
-
-    std::cout << content << '\n';
-
+    // Read
     std::string command;
     std::cout << "> ";
     std::getline(std::cin, command);
 
+    // Evaluate
     if (command == "exit") {
       break;
     } else if (command == "back") {
       currentFile = navigator.goBack();
+      changed = true;
     } else if (command == "help") {
       displayHelp();
     } else {
-      std::cout << "Unknown command. Type 'help' for a list of commands.\n";
+      if (command.rfind("go", 0) == 0) {
+        if (command.length() < 3) {
+          std::cout << "Invalid anchor number.\n";
+          continue;
+        }
+        size_t anchor = std::stoi(command.substr(3));
+        if (anchor < anchors.size()) {
+          currentFile = anchors[anchor];
+          navigator.addToHistory(currentFile);
+          changed = true;
+        } else {
+          std::cout << "Invalid anchor number.\n";
+        }
+      } else {
+        std::cout << "Unknown command. Type 'help' for a list of commands.\n";
+      }
     }
   }
 
