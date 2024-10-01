@@ -1,5 +1,5 @@
-#ifndef ANCHOR_PROCESSOR_HPP
-#define ANCHOR_PROCESSOR_HPP
+#ifndef ANCHORPROCESSOR_HPP
+#define ANCHORPROCESSOR_HPP
 
 #include <regex>
 #include <string>
