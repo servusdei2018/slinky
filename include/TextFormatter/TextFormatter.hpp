@@ -8,9 +8,9 @@
  * @class TextFormatter
  * @brief Formats text content to ensure it adheres to a specified line width.
  *
- * The TextFormatter class is responsible for formatting text content by 
+ * The TextFormatter class is responsible for formatting text content by
  * wrapping lines to a specified maximum width.
- * 
+ *
  * The formatting is performed in-place on the provided content string.
  *
  * Usage:

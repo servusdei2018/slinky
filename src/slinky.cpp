@@ -21,6 +21,7 @@ void displayHelp() {
   std::cout << "Commands:\n";
   std::cout << "  go <n>     - Navigate to the document associated with anchor "
                "number n\n";
+  std::cout << "  open <file>- Open a specified file\n";
   std::cout << "  back       - Go back to the previous document\n";
   std::cout << "  help       - Display this help message\n";
   std::cout << "  exit       - Exit the browser\n";
@@ -86,7 +87,7 @@ int main() {
       displayHelp();
     } else {
       if (command.rfind("go", 0) == 0) {
-        if (command.length() < 3) {
+        if (command.length() < 4) {
           std::cout << "Invalid anchor number.\n";
           continue;
         }
@@ -97,6 +98,19 @@ int main() {
           changed = true;
         } else {
           std::cout << "Invalid anchor number.\n";
+        }
+      } else if (command.rfind("open", 0) == 0) {
+        std::string fileToOpen = command.substr(5);
+        if (command.length() < 6) {
+          std::cout << "Invalid filename.\n";
+          continue;
+        }
+        if (!fileToOpen.empty()) {
+          currentFile = fileToOpen;
+          navigator.addToHistory(currentFile);
+          changed = true;
+        } else {
+          std::cout << "Please specify a file to open.\n";
         }
       } else {
         std::cout << "Unknown command. Type 'help' for a list of commands.\n";
