@@ -1,4 +1,4 @@
-A **program that emphasizes independence** has software components that:
+A program that emphasizes independence has software components that:
 
 <p> 1. Minimize Dependencies: components rely on each other as little as possible.
   
