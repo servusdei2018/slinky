@@ -1,0 +1,20 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/c++",
+      "-std=c++11",
+      "-pedantic-errors",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-Iinclude/",
+      "-c",
+      "-o",
+      "build/objects/src/slinky.o",
+      "src/slinky.cpp"
+    ],
+    "directory": "/Users/nbracy/Documents/slinky",
+    "file": "/Users/nbracy/Documents/slinky/src/slinky.cpp",
+    "output": "/Users/nbracy/Documents/slinky/build/objects/src/slinky.o"
+  }
+]

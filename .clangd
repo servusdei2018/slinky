@@ -1,0 +1,5 @@
+Diagnostics:
+  ClangTidy: true
+  ClangTidyChecks: '-*,clang-analyzer-*'
+
+CompileCommands: compile_commands.json

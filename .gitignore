@@ -1,4 +1,5 @@
 # Build directories
+.cache/
 build/apps/
 build/objects/
 
