@@ -1,0 +1,8 @@
+Status Report for CS142 Project 1: Web Browser Prototype
+
+Team Members
+- Nathanael Bracy <bracynj@clarkson.edu>
+
+Project Status: Completed
+
+The prototype web browser is fully functional and meets all specifications as designed.

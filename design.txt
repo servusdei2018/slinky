@@ -1,0 +1,39 @@
+Design Document for CS142 Project 1: Web Browser Prototype
+
+Goals
+- Implement a file viewer that supports document navigation through anchors.
+- Enable users to follow links between documents via commands.
+- Maintain a history of visited files to allow backward navigation.
+- Format text according to specified rules to enhance readability.
+
+System Components
+
+The project will be divided into the following key components: file handling module, anchor processing
+module, navigation module, and formatting module. Each component will be responsible for a subset of
+the overall functionality as follows:
+
+1. File Handling Module
+- Responsible for reading and parsing text files.
+- Parses anchors, line breaks, and paragraph breaks.
+
+2. Anchor Processing Module
+- Detects anchors in the text and assigns unique numbers.
+- Formats anchors for display as <text>[n].
+- Handles special elements like <br> and <p> for appropriate spacing.
+
+3. Navigation Module
+- Manages file history for back command functionality.
+
+4. Formatting Module
+- Formats text output based on user-defined maximum line length.
+
+User Interaction
+
+1. Input Flow
+- Prompt user for maximum line length.
+- Display content of the current file with anchors formatted.
+- Accept user commands (go, back, open) to navigate.
+
+2. Output Flow
+- Present formatted text in the console.
+- Display anchor text with numbering for user selection.
