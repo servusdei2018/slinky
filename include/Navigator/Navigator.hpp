@@ -1,7 +1,6 @@
 #ifndef NAVIGATOR_HPP
 #define NAVIGATOR_HPP
 
-#include <stdexcept>
 #include <string>
 #include <vector>
 

@@ -1,7 +1,6 @@
 #ifndef ANCHORPROCESSOR_HPP
 #define ANCHORPROCESSOR_HPP
 
-#include <regex>
 #include <string>
 #include <vector>
 
