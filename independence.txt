@@ -1,0 +1,12 @@
+A **program that emphasizes independence** has software components that:
+
+<p> 1. Minimize Dependencies: components rely on each other as little as possible.
+  
+<p> 2. Use Clear Interfaces: components interact through well-defined interfaces.
+
+<p> Independence is often achieved through:
+
+<p>
+
+- Encapsulation <br>
+- <a modularity.txt Modular> Design <br>
