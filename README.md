@@ -15,6 +15,8 @@ $ make
 $ ./build/apps/slinky
 ```
 
+Example files compatible with slinky are located in the `examples/` directory.
+
 ## Design
 
 For a detailed overview of the project's goals, features, and architecture, please refer to the [Design Document](design.pdf).
